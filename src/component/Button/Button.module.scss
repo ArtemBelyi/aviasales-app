@@ -1,0 +1,21 @@
+@import '../../utils/var.modules.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+}
+.button {
+    box-sizing: border-box;
+    font-family: $open-sans, sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    max-width: 502px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: $color-primery;
+    color: #FFFFFF;
+    padding-top: 12px;
+    cursor: pointer;
+    text-align: center;
+}

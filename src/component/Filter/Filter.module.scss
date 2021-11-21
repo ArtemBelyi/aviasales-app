@@ -1,0 +1,104 @@
+@import '../../utils/var.modules.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+  }
+.filter-container {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    width: 232px;
+    height: 252px;
+    font-family: $open-sans, sans-serif;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: $color-background-element;
+    padding: 10px 0px;
+    &__title {
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: 0.5px;
+        color: $color-gray;
+        margin: 10px 20px;
+        background-color: $color-background-element;
+    }
+}
+.list-item {
+    position: relative;
+    height: 40px;
+    font-size: 13px;
+    line-height: 20px;
+    color: $color-gray;
+    background-color: $color-background-element;
+    &:hover {
+        background-color: #F1FCFF;
+        transition: 200ms;
+    }
+}
+.md-checkbox {
+    position: absolute;
+    margin: 0px 20px;
+    top: 50%;
+    margin-top: -0.625em;
+    label {
+        cursor: pointer;
+        display: inline;
+        line-height: $md-checkbox-size;
+        vertical-align: top;
+        clear: both;
+        padding-left: 1px;
+        &:not(:empty) {
+          padding-left: $md-checkbox-label-padding;
+        }
+        
+        &:before, &:after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        
+        &:before {
+          // box
+          width: $md-checkbox-size;
+          height: $md-checkbox-size;
+          background: #fff;
+          border: $md-checkbox-border-width solid $md-checkbox-border-color;
+          border-radius: $md-checkbox-border-radius;
+          cursor: pointer;
+        }  
+      }
+      
+      input[type="checkbox"] {
+        outline: 0;
+        visibility: hidden;
+        width: $md-checkbox-size;
+        margin: 0;
+        display: block;
+        float: left;
+        font-size: inherit;
+    
+        &:checked {
+           + label:before{
+            background: $md-checkbox-checked-color;
+            border: $md-checkbox-border-width solid $md-checkbox-checked-color-disabled;
+          }
+          + label:after {
+            
+            $md-checkmark-size: $md-checkbox-size - 2 * $md-checkbox-padding;
+    
+            transform: translate($md-checkbox-padding, ($md-checkbox-size / 2) - ($md-checkmark-size / 2.6)) rotate(-45deg);
+            width: $md-checkmark-size;
+            height: $md-checkmark-size / 2;
+            
+            border: $md-checkmark-width solid $md-checkmark-color;
+            border-top-style: none;
+            border-right-style: none;
+          } 
+        }
+      }
+}

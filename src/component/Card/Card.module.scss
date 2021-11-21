@@ -1,0 +1,48 @@
+@import '../../utils/var.modules.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+}
+.card-container {
+    display: flex;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    flex-direction: column;
+    font-family: $open-sans, sans-serif;
+    font-size: 14px;
+    max-width: 502px;
+    height: 184px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+    &__price {
+        margin: auto 0px;
+        font-size: 24px;
+        color: $color-primery;
+    }
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+}
+.card-main {
+    display: flex;
+    flex-direction: column;
+    &__list {
+        flex-wrap: wrap;
+        display: flex;
+        margin: 10px 0;
+        font-size: 14px;
+        color: $color-gray;
+    }
+    &__item {
+        width: 33%;
+        &:nth-child(-n+3) {
+            font-size: 12px;
+            line-height: 18px;
+            color: #A0B0B9;
+        }
+    }
+}

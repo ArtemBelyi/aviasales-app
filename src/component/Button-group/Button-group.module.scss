@@ -1,0 +1,43 @@
+@import '../../utils/var.modules.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+}
+.button-group {
+    display: flex;
+    box-sizing: border-box;
+    font-family: $open-sans, sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    max-width: 502px;
+    height: 50px;
+    border: 1px solid #DFE5EC;
+    border-radius: 5px;
+    background-color: $color-background-element;
+}
+.button-item {
+    text-align: center;
+    color: $color-gray;
+    flex-basis: 33.33%;
+    padding-top: 12px;
+    cursor: pointer;
+
+    &:nth-child(1) {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    &:nth-child(2) {
+        border-right: 1px solid #DFE5EC;
+        border-left: 1px solid #DFE5EC;
+    }
+    &:nth-child(3) {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}
+.active {
+    background-color: $color-primery;
+    color: #FFFFFF
+}
