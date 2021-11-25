@@ -1,14 +1,15 @@
 import React from 'react';
-import logo from '../Card/logo.png'
+import { Ticket } from '../../types/tickets';
 const styles = require('./Card.module.scss')
 
-const Card = () => {
+const Card = (props: {ticket: Ticket}) => {
+    const { ticket } = props
 
     return (
         <div className={styles['card-container']}>
             <div className={styles['card-container__header']}>
-                <div className={styles["card-container__price"]}>13 400 P</div>
-                <div className={styles["card-container__logo"]}><img src={logo} alt="logo" /></div>
+                <div className={styles["card-container__price"]}>{`${ticket.price} P`}</div>
+                <div className={styles["card-container__logo"]}><img src={`https://pics.avs.io/99/36/${ticket.carrier}.png`} alt="logoAvia" /></div>
             </div>
             <div className={styles["card-container__main card-main"]}>
                 <div className={styles["card-main__list"]}>
