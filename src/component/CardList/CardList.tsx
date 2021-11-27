@@ -7,7 +7,7 @@ import { Ticket } from '../../types/tickets';
 const styles = require('./CardList.module.scss')
 
 const CardList = () => {
-    const {tickets, loading, error, sorting} = useTypedSelector(state => state.tickets)
+    const {tickets, loading, error, sorting, showMore} = useTypedSelector(state => state.tickets)
     const dispatch = useDispatch()
     let ticketState = []
 
@@ -25,12 +25,11 @@ const CardList = () => {
     if (error) {
         return <div className={styles['error']}><h1>Ошибка загрузки</h1></div>
     }
-    ticketState = (sorting === 'cheap') ? compare([...tickets]) : tickets
-    console.log(tickets)
-    console.log(ticketState)
+    ticketState = (sorting === 'cheap') ? compare([...tickets]) : ((sorting === 'fast') ? tickets : tickets) // cheap | fast | optimal
+    
     return (
         <div className={styles['card-list']}>
-           {ticketState.slice(0, 5).map(ticket => {
+           {ticketState.slice(0, showMore).map(ticket => {
                return <div className={styles["card-list__item"]} key={ticket.price}><Card ticket={ticket}/></div>
            })}
         </div>

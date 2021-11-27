@@ -1,9 +1,9 @@
 import { Dispatch } from "react"
-import { TicketAction, TicketActionTypes, Ticket } from "../../types/tickets"
+import { TicketAction, TicketActionTypes } from "../../types/tickets"
 import axios from 'axios'
 
 const API_URL = 'https://front-test.beta.aviasales.ru'
-const SEARCH_ID = '3xaa3'
+const SEARCH_ID = 'jjbe'
 
 
 export const fetchTickets = () => {
@@ -24,9 +24,19 @@ export const sortingTickets = (sort: string) => {
             return (dispatch: Dispatch<TicketAction>) => {
                 dispatch({type: TicketActionTypes.SORT_TICKETS_FAST, payload: sort})
             }
+        case 'optimal':
+            return (dispatch: Dispatch<TicketAction>) => {
+                dispatch({type: TicketActionTypes.SORT_TICKETS_OPTIMAL, payload: sort})
+            }
         default:
             return (dispatch: Dispatch<TicketAction>) => {
                 dispatch({type: TicketActionTypes.SORT_TICKETS_CHEAPEST, payload: sort})
             }
     } 
+}
+
+export const showMore = () => {
+    return (dispatch: Dispatch<TicketAction>) => {
+        dispatch({type: TicketActionTypes.AMOUNT_SHOW_TICKETS})
+    }
 }
