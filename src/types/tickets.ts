@@ -1,7 +1,8 @@
 export interface TicketState {
-    tickets: any[];
+    tickets: Ticket[];
     loading: boolean;
     error: null | string;
+    sorting: string;
 }
 export interface dataTicket {
     tickets: Ticket[],
@@ -45,7 +46,9 @@ export interface Ticket {
 export enum TicketActionTypes {
     FETCH_TICKETS = 'FETCH_TICKETS',
     FETCH_TICKETS_SUCCESS = 'FETCH_TICKETS_SUCCESS',
-    FETCH_TICKETS_ERROR = 'FETCH_TICKETS_ERROR'
+    FETCH_TICKETS_ERROR = 'FETCH_TICKETS_ERROR',
+    SORT_TICKETS_CHEAPEST = 'SORT_TICKETS_CHEAPEST',
+    SORT_TICKETS_FAST = 'SORT_TICKETS_FAST'
 }
 
 interface FetchTicketsAction {
@@ -62,4 +65,15 @@ interface FetchTicketsErrorAction {
     payload: string
 }
 
-export type TicketAction = FetchTicketsAction | FetchTicketsSuccessAction | FetchTicketsErrorAction
+interface SortTicketsCheapest {
+    type: TicketActionTypes.SORT_TICKETS_CHEAPEST
+    payload: string
+}
+
+interface SortTicketsFast {
+    type: TicketActionTypes.SORT_TICKETS_FAST
+    payload: string
+}
+
+
+export type TicketAction = FetchTicketsAction | FetchTicketsSuccessAction | FetchTicketsErrorAction | SortTicketsCheapest | SortTicketsFast
