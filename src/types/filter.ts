@@ -1,3 +1,4 @@
+
 export interface FilterState {
     transfers: Number[]
 }
@@ -12,22 +13,27 @@ export enum FilterTransferActionTypes {
 
 interface FilterAllTransfers {
     type: FilterTransferActionTypes.ALL_TRANSFERS
+    payload: Number[]
 }
 
 interface FilterWithoutTransfers {
     type: FilterTransferActionTypes.WITHOUT_TRANSFERS
+    payload: Number[]
 }
 
 interface FilterOneTransfer {
     type: FilterTransferActionTypes.ONE_TRANSFER
+    payload: Number[]
 }
 
 interface FilterTwoTransfer {
     type: FilterTransferActionTypes.TWO_TRANSFER
+    payload: Number[]
 }
 
 interface FilterThreeTransfers {
     type: FilterTransferActionTypes.THREE_TRANSFERS
+    payload: Number[]
 }
 
 export type FilterAction = FilterAllTransfers 

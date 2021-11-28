@@ -3,7 +3,7 @@ import { TicketAction, TicketActionTypes } from "../../types/tickets"
 import axios from 'axios'
 
 const API_URL = 'https://front-test.beta.aviasales.ru'
-const SEARCH_ID = '46bs1'
+const SEARCH_ID = '3sjx0'
 
 
 export const fetchTickets = () => {

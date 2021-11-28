@@ -7,15 +7,15 @@ const initialState: FilterState = {
 export const filterReducer = (state = initialState, action: FilterAction): FilterState => {
     switch (action.type) {
         case FilterTransferActionTypes.ALL_TRANSFERS:
-            return {transfers: [0, 1, 2, 3]}
+            return {transfers: action.payload}
         case FilterTransferActionTypes.WITHOUT_TRANSFERS:
-            return {transfers: [...state.transfers, 0]}
+            return {transfers: action.payload}
         case FilterTransferActionTypes.ONE_TRANSFER:
-            return {transfers: [...state.transfers, 1]}
+            return {transfers: action.payload}
         case FilterTransferActionTypes.TWO_TRANSFER:
-            return {transfers: [...state.transfers, 2]}
+            return {transfers: action.payload}
         case FilterTransferActionTypes.THREE_TRANSFERS:
-            return {transfers: [...state.transfers, 3]}
+            return {transfers: action.payload}
         default:
             return state
     }
