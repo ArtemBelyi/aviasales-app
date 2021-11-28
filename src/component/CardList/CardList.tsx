@@ -19,12 +19,11 @@ const CardList = () => {
         return state.sort((a: Ticket, b: Ticket) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0))
     }
 
-    if (loading) {
-        return <h1 className={styles['loading']}>Идет загрузка</h1>
-    }
-    if (error) {
-        return <div className={styles['error']}><h1>Ошибка загрузки</h1></div>
-    }
+    //console.log(tickets)
+
+    if (loading) return <h1 className={styles['loading']}>Идет загрузка</h1>
+    if (error) return <div className={styles['error']}><h1>Ошибка загрузки</h1></div>
+    
     ticketState = (sorting === 'cheap') ? compare([...tickets]) : ((sorting === 'fast') ? tickets : tickets) // cheap | fast | optimal
     
     return (
