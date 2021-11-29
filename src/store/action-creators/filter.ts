@@ -1,12 +1,13 @@
 import { Dispatch } from "react"
 import { FilterAction, FilterTransferActionTypes } from "../../types/filter"
 
-const arr: Number[] = []
+let arr: Number[] = []
 
 export const filterTransfer = (transfer: string) => {
 
     const addNumber = (num: number) => {
         arr.includes(num) ? arr.splice(arr.indexOf(num), 1) : arr.push(num)
+        if(arr.length === 4) addNumber(10)
     }
 
     switch (transfer) {
@@ -32,10 +33,7 @@ export const filterTransfer = (transfer: string) => {
             }
         default:
             return (dispatch: Dispatch<FilterAction>) => {
-                addNumber(0)
-                addNumber(1)
-                addNumber(2)
-                addNumber(3)
+                arr.length === 5 ? arr = [] : arr = [0, 1, 2, 3, 10]
                 dispatch({type: FilterTransferActionTypes.ALL_TRANSFERS, payload: arr})
             }
     } 
