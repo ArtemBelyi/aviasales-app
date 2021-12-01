@@ -3,14 +3,14 @@ import { TicketAction, TicketActionTypes } from "../../types/tickets"
 import axios from 'axios'
 
 const API_URL = 'https://front-test.beta.aviasales.ru'
-const SEARCH_ID = '131m7'
 
 
 export const fetchTickets = () => {
     return async (dispatch: Dispatch<TicketAction>) => {
         try {
             dispatch({type: TicketActionTypes.FETCH_TICKETS})
-            const response = await axios.get(`${API_URL}/tickets?searchId=${SEARCH_ID}`)
+            const searchId = await (await axios.get(`${API_URL}/search`)).data.searchId
+            const response = await axios.get(`${API_URL}/tickets?searchId=${searchId}`)
             dispatch({type: TicketActionTypes.FETCH_TICKETS_SUCCESS, payload: response.data.tickets})
         } catch (e) {
             dispatch({type: TicketActionTypes.FETCH_TICKETS_ERROR, payload: 'Что-то пошло не так!'})
